@@ -1,4 +1,5 @@
 #pragma once
+#include "CPs.h"
 #ifndef CONSOLE_H
 #define CONSOLE_H
 #endif
@@ -11,7 +12,6 @@ protected:
     int consoleCP;
 
 public:
-
     Console();
 
     int getCP();

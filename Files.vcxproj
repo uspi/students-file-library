@@ -150,6 +150,9 @@
     <ClCompile Include="Student.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CPs.h" />
+    <ClInclude Include="File.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="Сonsole.h" />
   </ItemGroup>

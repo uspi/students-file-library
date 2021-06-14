@@ -1,28 +1,24 @@
-#include <string>
-#include <iostream>
-#include <windows.h>
-#include <Console.h>
+#include "CPs.h"
+#include "Ñonsole.h"
+#include "Window.h"
+
 using namespace std;
 
+void Window::print(
+    string str,
+    bool onNextLine,
+    CPs consoleCodePage = CPs::ru)
+{
+    setCP(consoleCodePage);
 
-class Window : Console {
-public:
-    void print(
-        string str,
-        bool onNextLine,
-        CPs consoleCodePage = ru)
+    if (onNextLine)
     {
-        setCP(consoleCodePage);
-        
-        if (onNextLine)
-        {
-            cout << "\n" << str;
-            return;
-        }
-
-        cout << str;
-
-        // to default
-        setCP(def);
+        cout << "\n" << str;
+        return;
     }
-};
+
+    cout << str;
+
+    // to default
+    setCP(CPs::def);
+}

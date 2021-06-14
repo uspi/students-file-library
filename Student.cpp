@@ -19,7 +19,7 @@ public:
 
         char n[30] = "dfdf";
 
-        studentStruct.name = "df";
+        //studentStruct.name = "df";
 
         /*studentStruct.rating = 345;
         studentStruct.name = n;*/

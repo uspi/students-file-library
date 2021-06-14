@@ -1,13 +1,7 @@
-#include <string>
-#include <iostream>
-#include <windows.h>
-using namespace std;
+#include "Input.h"
 
-class Input {
-public:
-	string getInputText(int bufferSize = 4096) {
-		string input;
-		getline(cin, input);
-		return input;
-	}
-};
+string Input::getInputText(int bufferSize = 4096) {
+	string input;
+	getline(cin, input);
+	return input;
+}

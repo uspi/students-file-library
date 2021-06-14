@@ -1,7 +1,9 @@
-#include "FileStringReader.cpp"
-#include "Window.cpp"
-#include "File.cpp"
-#include "Input.cpp"
+//#include "FileStringReader.cpp"
+
+#include "File.h"
+#include "Input.h"
+
+#include "Window.h"
 using namespace std;
 
 int main()
@@ -13,10 +15,10 @@ int main()
 
     Input inp;
 
-    window.print("‘айл пуст", false);
-    window.print("¬ведите данные дл€ записи в файл: ", true);
+    window.print("‘айл пуст", false, CPs::ru);
+    window.print("¬ведите данные дл€ записи в файл: ", true, CPs::ru);
 
-    string uInp = inp.getInputText();
+    string uInp = inp.getInputText(4096);
 
     string filePath = "in.txt";
     File file(filePath);
