@@ -5,9 +5,13 @@
 #include <string>
 #include <iostream>
 #include <windows.h>
+
+#include "CPs.h"
+#include "Ñonsole.h"
+
 using namespace std;
 
-class Input {
+class Input : Console {
 public:
-	string getInputText(int bufferSize);
+	string getInputText(int bufferSize, CPs consoleCodePage);
 };

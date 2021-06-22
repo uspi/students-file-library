@@ -3,9 +3,11 @@
 #define FILE_H
 #endif
 #include <string>
-#include <fstream>
 #include <iostream>
-#include <Windows.h>
+#include <fstream>
+
+#include <sys/stat.h>
+
 using namespace std;
 
 class File {
@@ -23,4 +25,6 @@ public:
     void appendText(string text, bool onNextLine);
 
     bool isEmpty();
+
+    bool isExists(string path);
 };

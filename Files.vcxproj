@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\uspi\source\repos\Files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\repositories\students-file-library;C:\Users\uspi\source\repos\Files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,17 +143,23 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="Files.cpp" />
+    <ClCompile Include="FileService.cpp" />
     <ClCompile Include="FileStringReader.cpp" />
     <ClCompile Include="FileStringWriter.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="WorkCycles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPs.h" />
+    <ClInclude Include="Dialog.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="FileService.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Student.h" />
     <ClInclude Include="Window.h" />
+    <ClInclude Include="WorkCycles.h" />
     <ClInclude Include="Сonsole.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

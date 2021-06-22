@@ -30,7 +30,17 @@ string File::readText() {
         return "file stream are not opened";
     }
 
-    cin >> text;
+    string line;
+    int lineCounter = 0;
+
+    while (getline(fs, line))
+    {
+        lineCounter > 0 ?
+            text += "\n" + line :
+            text += line;
+
+        lineCounter++;
+    }
 
     fs.close();
 
@@ -59,4 +69,10 @@ bool File::isEmpty() {
     fs.open(path, fstream::in);
 
     return true;
+}
+
+// WARN: does not guarantee the existence
+bool File::isExists(string path) {
+    struct stat buffer;
+    return (stat(path.c_str(), &buffer) == 0);
 }
