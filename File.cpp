@@ -1,4 +1,5 @@
 #include "File.h"
+#include <Ñonsole.h>
 
 using namespace std;
 
@@ -21,7 +22,6 @@ void File::createText(string text) {
 }
 
 string File::readText() {
-
     string text;
 
     fs.open(path, fstream::in);
@@ -42,8 +42,9 @@ string File::readText() {
         lineCounter++;
     }
 
+    lineCount = lineCounter;
     fs.close();
-
+    
     return text;
 }
 
@@ -71,7 +72,7 @@ bool File::isEmpty() {
     return true;
 }
 
-// WARN: does not guarantee the existence
+/// WARN: does not guarantee the existence
 bool File::isExists(string path) {
     struct stat buffer;
     return (stat(path.c_str(), &buffer) == 0);

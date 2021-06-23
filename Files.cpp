@@ -13,28 +13,31 @@ int main()
     //flservice.removeZerosFromEnd("100");
     //string a = FileService::removeZerosFromEnd("1000");
     setlocale(LC_ALL, "Russian");
-    
+
     string filePath = "in.txt";
 
     File file(filePath);
     Window window;
     Input inp;
 
-    window.print("Проверка существания файла", false, CPs::ru);
-    window.print(filePath, true, CPs::ru);
+    window.print("Проверка существания файла ", false, CPs::ru);
+    window.print(filePath, false, CPs::ru);
 
     bool fileExist = file.isExists(filePath);
-    
-    // show file
+
+    vector<Student> students;
+
+    // exists
     if (fileExist)
     {
-        window.print("Файл существует, содержание:", true, CPs::ru);
-
         string fileBody = file.readText();
 
+        window.print("Файл существует, содержание:", true, CPs::ru);
         window.print(fileBody, true, CPs::ru);
 
-    // write file
+        students = FileService::getStudentsFromFile(fileBody, file.lineCount, 1, 2, 3);
+
+        // if no exists
     } else {
         window.print("Файл не существует", true, CPs::ru);
         window.print("Начало создания файла, сколько студентов вы хотите создать?", true, CPs::ru);
@@ -45,8 +48,6 @@ int main()
         string name;
         string group;
         float rating;
-
-        vector<Student> students;
 
         // creating students and writitng in file
         for (int i = 1; i <= quantityOfSutdents; i++)
@@ -64,76 +65,18 @@ int main()
             // rating
             window.print("Введите рейтинг студента номер ", false, CPs::ru);
             window.print(to_string(i) + ": ", false, CPs::ru);
-            rating = stof(inp.getInputText(3, CPs::ru)); 
-            
+            rating = stof(inp.getInputText(3, CPs::ru));
+
             // create student add to array
             Student stud(name, group, rating);
             students.push_back(stud);
 
-            // show created student
-            /*window.print("Созданный студент:", true, CPs::ru);
-            window.print(stud.toString(), false, CPs::ru);*/
-        }
-
-        //FileService::saveOutOne(students);
-        FileService::saveOutTwo(students);
-
-        // show all student
-        /*for (int i = 0; i < students.size(); i++)
-        {
-            window.print(students[i].name + "\t", true, CPs::ru);
-            window.print(students[i].group + "\t", false, CPs::ru);
-            window.print(FileService::removeZerosFromEnd(to_string(students[i].rating)) + "\t", false, CPs::ru);
-        }*/
-        
-
-        window.print("Созданние студентов окончено", true, CPs::ru);
-        window.print("Сохранение в двух представлениях", true, CPs::ru);
+            window.print("Созданние студентов окончено", true, CPs::ru);
+        } 
     }
 
-    //window.print("Введите данные для записи в файл: ", true, CPs::ru);
+    FileService::saveOutOne(students);
+    FileService::saveOutTwo(students);
 
-    //string uInp = inp.getInputText(4096);
-
-    ////file.appendText(uInp);
-    //file.createText(uInp);
+    window.print("Сохранение в двух представлениях окончено", true, CPs::ru);
 }
-
-//void saveOutOne(vector<Student> students) {
-//    string filePath = "out1.txt";
-//    File file(filePath);
-//
-//    string lines = "";
-//
-//    // creating markup
-//
-//    file.createText(lines);
-//}
-//
-//void saveOutTwo(vector<Student> students) {
-//    string filePath = "out2.txt";
-//    File file(filePath);
-//}
-//
-//string removeZerosFromEnd(string str) {
-//    return str.erase(str.find_first_of("0"), str.size() - 1);
-//}
-//
-//void createFile() {
-//
-//}
-//
-//void rewriteFileCycle() {
-//
-//}
-//
-//void createFileCycle() {
-//
-//}
-//
-//void printRuMessage() {
-//
-//}
-//
-//void printRuMessageOnNextLine(string message) {
-//}
